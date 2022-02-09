@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" >
+  {% csrf_token %}
+  <input type="text" name="task" placeholder="Enter your task"><br>
+  <input type="text" name="priority" placeholder="Enter task priority"><br>
+  <input type="submit" class="btn btn-success">
+</form>
+<h4>Task to be Completed</h4>
+  {% for i in tasks %}
+{{i.task}}</h5>
+  <p><b>{{i.priority}}</b></p>
+  <a class="btn btn-danger" href="delete/{{i.id}}">Done</a>
+  <br>
+  {% endfor %}
+  {% endblock %}
